@@ -18,11 +18,11 @@ const instructions = Platform.select({
 export default class App extends Component {
     render() {
         return (
-            <ImageBackground source={require('')}>
+
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>Welcome to React Native!</Text>
+                    <Text style={styles.welcome}>Welcome</Text>
                 </View>
-            </ImageBackground>
+
         );
     }
 }
