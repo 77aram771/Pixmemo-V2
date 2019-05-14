@@ -3,11 +3,12 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity, TouchableHighlight} from 'react-native';
 import {Title} from '../../Components/Title';
 
 export default class Main_Page extends Component {
     render() {
+
         return (
             <ImageBackground style={{width: '100%', height: '100%'}}
                              source={require('../../Image/BackgroundImg.png')}
@@ -30,7 +31,6 @@ export default class Main_Page extends Component {
                         <TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'>
                             <Text style={styles.loginText}>Get started</Text>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ImageBackground>
@@ -44,15 +44,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
-        borderStyle: 'solid',
-        borderColor: 'red',
-        borderWidth: 1,
         paddingBottom: 100,
     },
     title: {
-        borderStyle: 'solid',
-        borderColor: 'red',
-        borderWidth: 1,
         fontSize: 25,
         marginBottom: 32,
         textAlign: 'center',
@@ -64,9 +58,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        borderStyle: 'solid',
-        borderColor: 'red',
-        borderWidth: 1,
         fontSize: 16,
         textAlign: 'center',
         marginLeft: 45,
@@ -88,13 +79,15 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         width: 221,
         height: 57,
-        shadowColor: "#000000",
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
+        shadowColor: "#000",
         shadowOffset: {
-            height: 1,
-            width: 1
-        }
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+
+        elevation: 7,
     },
     loginText: {
         color: '#fff',
