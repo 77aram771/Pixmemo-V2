@@ -17,6 +17,8 @@ export const Title = () => {
 const styles = StyleSheet.create({
     title: {
         fontSize: 30,
-        color: '#ffffff'
+        color: '#ffffff',
+        fontFamily: 'lucida grande',
+        marginBottom: 70,
     }
 });
