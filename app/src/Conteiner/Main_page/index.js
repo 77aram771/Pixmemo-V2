@@ -5,6 +5,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity, TouchableHighlight} from 'react-native';
 import {Title} from '../../Components/Title';
+import Cropper from "../Cropper/index";
 
 export default class Main_Page extends Component {
     render() {
@@ -14,25 +15,27 @@ export default class Main_Page extends Component {
                              source={require('../../Image/BackgroundImg.png')}
                              imageStyle={{resizeMode: 'cover'}}
             >
-                <View style={styles.container}>
-                    <View>
-                        <Title/>
-                    </View>
-                    <View>
-                        <Text style={styles.title}>
-                            LOREM IPSUM DOLOR
-                        </Text>
-                        <Image source={require('../../Image/banner.png')}/>
-                    </View>
-                    <View style={styles.viewElement}>
-                        <Text style={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a
-                        </Text>
-                        <TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'>
-                            <Text style={styles.loginText}>Get started</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                {/*<View style={styles.container}>*/}
+                    {/*<View>*/}
+                        {/*<Title/>*/}
+                    {/*</View>*/}
+                    {/*<View>*/}
+                        {/*<Text style={styles.title}>*/}
+                            {/*LOREM IPSUM DOLOR*/}
+                        {/*</Text>*/}
+                        {/*<Image source={require('../../Image/banner.png')}/>*/}
+                    {/*</View>*/}
+                    {/*<View style={styles.viewElement}>*/}
+                        {/*<Text style={styles.text}>*/}
+                            {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a*/}
+                        {/*</Text>*/}
+                        {/*<TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'>*/}
+                            {/*<Text style={styles.loginText}>Get started</Text>*/}
+                        {/*</TouchableOpacity>*/}
+                    {/*</View>*/}
+                {/*</View>*/}
+
+                <Cropper/>
             </ImageBackground>
         );
     }
