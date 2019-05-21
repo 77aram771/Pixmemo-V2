@@ -36,6 +36,9 @@ export default class Main_Page extends Component {
                 {/*</View>*/}
 
                 <Cropper/>
+                <Text>
+                   asdasda
+                </Text>
             </ImageBackground>
         );
     }
