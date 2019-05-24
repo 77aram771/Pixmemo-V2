@@ -7,30 +7,35 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ImageBackground} from 'react-native';
-import Main_Page from "./src/Conteiner/Main_page/index";
+import {Router, Scene, Drawer} from 'react-native-router-flux';
+import Main_Page from './src/Conteiner/Main_page';
+import Cropper from './src/Conteiner/Cropper';
+import MenuIcon from './src/Image/icon/MenuIcon.png'
+import Pixmemo from './src/Image/icon/Pixmemo.png';
 
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Main_Page/>
-            </View>
-        );
+            <Router>
+                <Drawer hideNavBar={true}
+                        key="drawer"
+                        drawerImage={MenuIcon}
+
+                        drawerPosition="left"
+                        drawerWidth={300}
+                        navigationBarStyle={{backgroundColor: 'red', flex: 1}}
+                        navigationBarTitleImage={Pixmemo}
+                        navigationBarTitleImageStyle={{marginLeft: 80}}
+                    // navigationBarTitleImageStyle={{width: 100}}
+                >
+                    <Scene key="root">
+                        <Scene key="pageOne" component={Main_Page} initial={true}/>
+                        <Scene key="pageTwo" component={Cropper}/>
+                    </Scene>
+                </Drawer>
+            </Router>
+        )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
+export default App;

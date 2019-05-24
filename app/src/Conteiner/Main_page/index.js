@@ -3,42 +3,47 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity, TouchableHighlight} from 'react-native';
-import {Title} from '../../Components/Title';
-import Cropper from "../Cropper/index";
+import {
+    StyleSheet,
+    Text,
+    View,
+    ImageBackground,
+    Image,
+    Button,
+    TouchableOpacity,
+    TouchableHighlight,
+    Dimensions
+} from 'react-native';
+import {Actions} from 'react-native-router-flux'
 
 export default class Main_Page extends Component {
     render() {
+        const goToHome = () => {
+            Actions.pageTwo()
+        };
 
         return (
             <ImageBackground style={{width: '100%', height: '100%'}}
                              source={require('../../Image/BackgroundImg.png')}
                              imageStyle={{resizeMode: 'cover'}}
             >
-                {/*<View style={styles.container}>*/}
-                    {/*<View>*/}
-                        {/*<Title/>*/}
-                    {/*</View>*/}
-                    {/*<View>*/}
-                        {/*<Text style={styles.title}>*/}
-                            {/*LOREM IPSUM DOLOR*/}
-                        {/*</Text>*/}
-                        {/*<Image source={require('../../Image/banner.png')}/>*/}
-                    {/*</View>*/}
-                    {/*<View style={styles.viewElement}>*/}
-                        {/*<Text style={styles.text}>*/}
-                            {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a*/}
-                        {/*</Text>*/}
-                        {/*<TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'>*/}
-                            {/*<Text style={styles.loginText}>Get started</Text>*/}
-                        {/*</TouchableOpacity>*/}
-                    {/*</View>*/}
-                {/*</View>*/}
-
-                <Cropper/>
-                <Text>
-                   asdasda
-                </Text>
+                <View style={styles.container}>
+                    <View>
+                        <Text style={styles.title}>
+                            LOREM IPSUM DOLOR
+                        </Text>
+                        <Image source={require('../../Image/banner.png')}/>
+                    </View>
+                    <View style={styles.viewElement}>
+                        <Text style={styles.text}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a
+                        </Text>
+                        <TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'
+                                          onPress={goToHome}>
+                            <Text style={styles.loginText}>Get started</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </ImageBackground>
         );
     }
