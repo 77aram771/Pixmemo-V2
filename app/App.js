@@ -29,9 +29,9 @@ class App extends Component {
                     // navigationBarTitleImageStyle={{width: 100}}
                 >
                     <Scene key="root">
-                        <Scene key="pageOne" component={Main_Page} initial={true}/>
-                        <Scene key="pageTree" component={AmazingCropperPage}/>
-                        <Scene key="pageTwo" component={ImagePickerButton}/>
+                        <Scene key="pageOne" component={Main_Page} />
+                        <Scene key="pageTree" component={AmazingCropperPage} />
+                        <Scene key="pageTwo" component={ImagePickerButton} initial={true}/>
                     </Scene>
                 </Drawer>
             </Router>

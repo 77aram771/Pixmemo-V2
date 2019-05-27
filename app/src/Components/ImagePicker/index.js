@@ -2,30 +2,40 @@
  * Created by Aram on 24.05.2019.
  */
 import React from 'react';
-import { View, Text, Image, Button } from 'react-native';
-import ImagePicker from 'react-native-image-picker';
+import {
+    StyleSheet,
+    Text,
+    View,
+    ImageBackground,
+    Image,
+    Button,
+    TouchableOpacity,
+    TouchableHighlight,
+    Dimensions
+} from 'react-native';
+const ImagePicker = require('react-native-image-picker');
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            filePath: {},
+        };
+    }
 
-export default class ImagePickerButton extends React.Component {
-    state = {
-        photo: null,
-        avatarSource: null
-    };
-
-    handleChoosePhoto = () => {
+    chooseFile = () => {
         const options = {
-            title: 'Select Avatar',
-            customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+            title: 'Select Image',
+            customButtons: [
+                {name: 'customOptionKey', title: 'Choose Photo from Custom Option'},
+            ],
             storageOptions: {
                 skipBackup: true,
                 path: 'images',
             },
         };
-
-        /**
-         * The first arg is the options object for customization (it can also be null or omitted for default options),
-         * The second arg is the callback which sends object: response (more info in the API Reference)
-         */
-        ImagePicker.launchCamera(options, (response) => {
+        ImagePicker.showImagePicker(options, response => {
             console.log('Response = ', response);
 
             if (response.didCancel) {
@@ -34,32 +44,62 @@ export default class ImagePickerButton extends React.Component {
                 console.log('ImagePicker Error: ', response.error);
             } else if (response.customButton) {
                 console.log('User tapped custom button: ', response.customButton);
+                alert(response.customButton);
             } else {
-                const source = { uri: response.uri };
-                console.log('source',source)
                 // You can also display the image using data:
-                // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
+                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
                 this.setState({
-                    avatarSource: source,
-                    photo: source
+                    filePath: response,
                 });
             }
         });
     };
 
     render() {
-        const { photo } = this.state;
+        console.log(width)
+        console.log(height)
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                {photo && (
+            <View style={styles.container}>
+                <View style={styles.containerImage}>
                     <Image
-                        source={{ uri: photo }}
-                        style={{ width: 300, height: 300 }}
+                        source={{uri: this.state.filePath.uri}}
+                        style={styles.imagePicker}
                     />
-                )}
-                <Button title="Choose Photo" onPress={this.handleChoosePhoto} />
+                    <TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>
+                        <Image
+                            style={styles.button}
+                            source={require('../../Image/icon/myButton.png')}
+                        />
+                    </TouchableHighlight>
+                </View>
+                <View>
+                </View>
             </View>
         );
     }
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
+    containerImage: {
+        marginTop: 20,
+        display: 'flex',
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        borderColor: 'blue',
+        borderWidth: 1,
+        borderStyle: 'solid',
+    },
+    imagePicker: {
+        width: 315,
+        height: 330,
+    },
+    button: {
+
+    }
+});
