@@ -16,6 +16,7 @@
     "react-native-navigation": "^2.18.5",
     "react-native-router-flux": "^4.0.6",
     "react-native-shadow": "^1.2.2",
+    "react-native-snap-carousel": "^3.8.0",
     "react-navigation": "2"
   },
   "devDependencies": {

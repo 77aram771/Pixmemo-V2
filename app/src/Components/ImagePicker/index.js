@@ -3,16 +3,16 @@
  */
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
     View,
-    ImageBackground,
+    StyleSheet,
     Image,
-    Button,
-    TouchableOpacity,
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
+import MyCarousel from "../ImageCaruserl/index";
+import {Footer_Section} from "../../Conteiner/Footer_Section/index";
+import ButtonRoundedExample from "../Next_Button/index";
 const ImagePicker = require('react-native-image-picker');
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -59,22 +59,19 @@ export default class App extends React.Component {
         console.log(width)
         console.log(height)
         return (
-            <View style={styles.container}>
+            <Container style={styles.container}>
+
                 <View style={styles.containerImage}>
-                    <Image
-                        source={{uri: this.state.filePath.uri}}
-                        style={styles.imagePicker}
-                    />
                     <TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>
                         <Image
-                            style={styles.button}
-                            source={require('../../Image/icon/myButton.png')}
+                            source={{uri: this.state.filePath.uri}}
+                            style={styles.imagePicker}
                         />
                     </TouchableHighlight>
                 </View>
-                <View>
-                </View>
-            </View>
+                <ButtonRoundedExample/>
+                <Footer_Section/>
+            </Container>
         );
     }
 }
@@ -83,23 +80,35 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
     },
     containerImage: {
         marginTop: 20,
         display: 'flex',
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+        // alignItems: 'center',
+        // justifyContent: 'center',
         borderColor: 'blue',
         borderWidth: 1,
         borderStyle: 'solid',
+        height: 330
     },
     imagePicker: {
         width: 315,
         height: 330,
     },
     button: {
-
+        width: 151,
+        height: 41,
+        borderRadius: 30,
+        backgroundColor: '#0091c1',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 7,
     }
 });

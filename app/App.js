@@ -20,7 +20,6 @@ class App extends Component {
                 <Drawer hideNavBar={true}
                         key="drawer"
                         drawerImage={MenuIcon}
-
                         drawerPosition="left"
                         drawerWidth={300}
                         navigationBarStyle={{backgroundColor: 'red'}}
@@ -30,8 +29,8 @@ class App extends Component {
                 >
                     <Scene key="root">
                         <Scene key="pageOne" component={Main_Page} />
-                        <Scene key="pageTree" component={AmazingCropperPage} />
-                        <Scene key="pageTwo" component={ImagePickerButton} initial={true}/>
+                        <Scene key="pageTree" component={AmazingCropperPage}/>
+                        <Scene key="pageTwo" component={ImagePickerButton}  initial={true} />
                     </Scene>
                 </Drawer>
             </Router>
