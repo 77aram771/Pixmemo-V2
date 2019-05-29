@@ -10,7 +10,7 @@ import {
     Dimensions
 } from 'react-native';
 import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
-import MyCarousel from "../ImageCaruserl/index";
+import {MyCarousel} from "../ImageCaruserl/index";
 import {Footer_Section} from "../../Conteiner/Footer_Section/index";
 import ButtonRoundedExample from "../Next_Button/index";
 const ImagePicker = require('react-native-image-picker');
@@ -69,6 +69,7 @@ export default class App extends React.Component {
                         />
                     </TouchableHighlight>
                 </View>
+                <MyCarousel image={this.state.filePath.uri}/>
                 <ButtonRoundedExample/>
                 <Footer_Section/>
             </Container>

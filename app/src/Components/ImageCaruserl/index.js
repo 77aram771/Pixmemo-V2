@@ -1,64 +1,51 @@
-// /**
-//  * Created by Aram on 27.05.2019.
-//  */
-// import {
-//     StyleSheet,
-//     Text,
-//     View,
-//     ImageBackground,
-//     Image,
-//     Button,
-//     TouchableOpacity,
-//     TouchableHighlight,
-//     Dimensions
-// } from 'react-native';
-// import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-// const width = Dimensions.get('window').width;
-// const height = Dimensions.get('window').height;
-// import img1 from '../../Image/img1.png';
-// import img2 from '../../Image/img2.png';
-// import img3 from '../../Image/img3.png';
-// export default class MyCarousel extends Component {
-//
-//     constructor() {
-//         super(props);
-//         this.state = {
-//             _renderItem: [img1, img2, img3]
-//         }
-//     }
-//
-//     handelCarusel = () => {
-//         // this.state._renderItem.map = ({item, index}, parallaxProps) => {
-//         //     return (
-//         //         <View style={styles.item}>
-//         //
-//         //         </View>
-//         //     );
-//         // }
-//     };
-//
-//
-//     render() {
-//         return (
-//             <View>
-//                 <Text>
-//                     asd
-//                 </Text>
-//             </View>
-//         );
-//     }
-// }
-//
-// const styles = StyleSheet.create({
-//     title: {
-//         fontSize: 15
-//     },
-//     image: {
-//         width: 118,
-//         height: 82
-//     },
-//     imageContainer: {
-//         width: width,
-//         height: 200
-//     }
-// });
+/**
+ * Created by Aram on 27.05.2019.
+ */
+import React from 'react';
+import {
+    StyleSheet,
+    View,
+    ImageBackground,
+    Image,
+    Button,
+    TouchableOpacity,
+    TouchableHighlight,
+    Dimensions,
+    ScrollView,
+} from 'react-native';
+import {Container} from 'native-base';
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+export const MyCarousel = ({image}) => {
+    console.log('image',image);
+    return (
+        <Container style={styles.container}>
+            <ScrollView horizontal={true}>
+                <View style={styles.viewStyle}>
+                    <TouchableHighlight>
+                        <Image source={{uri: image}}
+                               style={styles.imagePicker}/>
+                    </TouchableHighlight>
+                </View>
+            </ScrollView>
+        </Container>
+    )
+};
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 25,
+        width: width,
+        height: 85,
+        flex: 1,
+        flexDirection: 'row',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: 'red',
+        justifyContent: 'space-around',
+    },
+    viewStyle: {
+        marginLeft: 15,
+        marginRight: 15,
+    }
+});

@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
     container: {
         width: width,
         height: 110,
-        borderWidth: 1,
+        borderTopWidth: 1,
         borderStyle: 'solid',
-        borderColor: 'blue',
+        borderColor: 'grey',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
