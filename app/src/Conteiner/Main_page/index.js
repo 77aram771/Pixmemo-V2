@@ -14,37 +14,40 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+import {Container} from 'native-base';
 import {Actions} from 'react-native-router-flux'
-
+import SplashScreenMask from 'react-native-splash-screen-mask';
+import IMAGE from '../../Image/splash.png';
 export default class Main_Page extends Component {
     render() {
         const goToHome = () => {
             Actions.pageTwo()
         };
-
         return (
-            <ImageBackground style={{width: '100%', height: '100%'}}
-                             source={require('../../Image/BackgroundImg.png')}
-                             imageStyle={{resizeMode: 'cover'}}
-            >
-                <View style={styles.container}>
-                    <View>
-                        <Text style={styles.title}>
-                            LOREM IPSUM DOLOR
-                        </Text>
-                        <Image source={require('../../Image/banner.png')}/>
+            <Container>
+                <ImageBackground style={{width: '100%', height: '100%'}}
+                                 source={require('../../Image/BackgroundImg.png')}
+                                 imageStyle={{resizeMode: 'cover'}}
+                >
+                    <View style={styles.container}>
+                        <View>
+                            <Text style={styles.title}>
+                                LOREM IPSUM DOLOR
+                            </Text>
+                            <Image source={require('../../Image/banner.png')}/>
+                        </View>
+                        <View style={styles.viewElement}>
+                            <Text style={styles.text}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a
+                            </Text>
+                            <TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'
+                                              onPress={goToHome}>
+                                <Text style={styles.loginText}>Get started</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={styles.viewElement}>
-                        <Text style={styles.text}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis tempor ex, a
-                        </Text>
-                        <TouchableOpacity style={styles.loginScreenButton} title='Get started' underlayColor='#fff'
-                                          onPress={goToHome}>
-                            <Text style={styles.loginText}>Get started</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ImageBackground>
+                </ImageBackground>
+            </Container>
         );
     }
 }
