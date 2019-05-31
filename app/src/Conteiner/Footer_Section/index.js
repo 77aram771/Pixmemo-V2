@@ -34,16 +34,6 @@ export const Footer_Section = () => {
             <View style={styles.footerButton}>
                 <TouchableHighlight>
                     <Image
-                        source={Img_rotate}
-                    />
-                </TouchableHighlight>
-                <Text>
-                    Rotate
-                </Text>
-            </View>
-            <View style={styles.footerButton}>
-                <TouchableHighlight>
-                    <Image
                         source={Img_delete}
                     />
                 </TouchableHighlight>

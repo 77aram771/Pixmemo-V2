@@ -7,6 +7,7 @@ import {Actions} from 'react-native-router-flux';
 import AmazingCropper from 'react-native-amazing-cropper';
 import CustomCropperFooter from '../../../src/Components/CustomCropperFooter';
 import ImagePicker from 'react-native-image-crop-picker';
+import myButton from '../../Image/icon/myButton.png';
 
 export default class AmazingCropperPage extends Component {
 
@@ -19,7 +20,7 @@ export default class AmazingCropperPage extends Component {
     }
 
 
-    pickSingle(cropit, circular=false, mediaType) {
+    pickSingle(cropit, circular = false, mediaType) {
         ImagePicker.openPicker({
             width: 500,
             height: 500,
@@ -32,6 +33,7 @@ export default class AmazingCropperPage extends Component {
             includeExif: true,
         }).then(image => {
             console.log('received image', image);
+
             this.setState({
                 image: {uri: image.path, width: image.width, height: image.height, mime: image.mime},
                 images: null
@@ -41,15 +43,17 @@ export default class AmazingCropperPage extends Component {
             // Alert.alert(e.message ? e.message : e);
         });
     }
+
     renderImage(image) {
-        return <Image style={{width: 300, height: 300, resizeMode: 'contain'}} source={image} />
+        return <Image style={{width: 300, height: 300, resizeMode: 'contain'}} source={image}/>
     }
 
     renderVideo(video) {
         console.log('rendering video');
         return (<View style={{height: 300, width: 300}}>
             <Video source={{uri: video.uri, type: video.mime}}
-                   style={{position: 'absolute',
+                   style={{
+                       position: 'absolute',
                        top: 0,
                        left: 0,
                        bottom: 0,
@@ -62,7 +66,7 @@ export default class AmazingCropperPage extends Component {
                    resizeMode={'cover'}
                    onError={e => console.log(e)}
                    onLoad={load => console.log(load)}
-                   repeat={true} />
+                   repeat={true}/>
         </View>);
     }
 
@@ -75,19 +79,31 @@ export default class AmazingCropperPage extends Component {
     }
 
 
-
     render() {
         return (
             <View>
                 <ScrollView>
                     {this.state.image ? this.renderAsset(this.state.image) : null}
-                    {this.state.images ? this.state.images.map(i => <View key={i.uri}>{this.renderAsset(i)}</View>) : null}
+                    {this.state.images ? this.state.images.map(i => <View
+                        key={i.uri}>{this.renderAsset(i)}</View>) : null}
                 </ScrollView>
                 <TouchableOpacity onPress={() => this.pickSingle(true)}>
-                    <Text>Select Single With Cropping</Text>
+                    <Image
+                        source={myButton}
+                        styles={this.state.images ? styles.imgButtonFlex : styles.imgButtonNone}
+                    />
                 </TouchableOpacity>
             </View>
         )
     }
 
 }
+
+const styles = StyleSheet.create({
+    imgButtonFlex: {
+        display: 'flex'
+    },
+    imgButtonNone: {
+        display: 'none'
+    }
+})

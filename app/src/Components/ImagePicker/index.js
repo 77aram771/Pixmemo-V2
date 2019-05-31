@@ -25,49 +25,12 @@ export default class App extends React.Component {
         };
     }
 
-    chooseFile = () => {
-        const options = {
-            title: 'Select Image',
-            customButtons: [
-                {name: 'customOptionKey', title: 'Choose Photo from Custom Option'},
-            ],
-            storageOptions: {
-                skipBackup: true,
-                path: 'images',
-            },
-        };
-        ImagePicker.showImagePicker(options, response => {
-            console.log('Response = ', response);
-
-            if (response.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            } else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-                alert(response.customButton);
-            } else {
-                // You can also display the image using data:
-                // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-                this.setState({
-                    filePath: response,
-                });
-            }
-        });
-    };
-
     render() {
         console.log(width)
         console.log(height)
         return (
             <Container style={styles.container}>
                 <View style={styles.containerImage}>
-                    {/*<TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>*/}
-                        {/*<Image*/}
-                            {/*source={{uri: this.state.filePath.uri}}*/}
-                            {/*style={styles.imagePicker}*/}
-                        {/*/>*/}
-                    {/*</TouchableHighlight>*/}
                     <AmazingCropperPage/>
                 </View>
                 <MyCarousel image={this.state.filePath.uri}/>
@@ -86,12 +49,14 @@ const styles = StyleSheet.create({
     },
     containerImage: {
         marginTop: 20,
-        display: 'flex',
         backgroundColor: '#fff',
         borderColor: 'blue',
         borderWidth: 1,
         borderStyle: 'solid',
-        height: 330
+        width: 300,
+        height: 330,
+        display: 'flex',
+        justifyContent: 'center',
     },
     imagePicker: {
         width: 315,
