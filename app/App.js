@@ -13,27 +13,31 @@ import AmazingCropperPage from './src/Conteiner/Cropper';
 import MenuIcon from './src/Image/icon/MenuIcon.png'
 import Pixmemo from './src/Image/icon/Pixmemo.png';
 import ImagePickerButton from './src/Components/ImagePicker'
+import SplashApp from 'react-native-splashed-app'
 class App extends Component {
+
     render() {
         return (
-            <Router>
-                <Drawer hideNavBar={true}
-                        key="drawer"
-                        drawerImage={MenuIcon}
-                        drawerPosition="left"
-                        drawerWidth={300}
-                        navigationBarStyle={{backgroundColor: 'red'}}
-                        navigationBarTitleImage={Pixmemo}
-                        navigationBarTitleImageStyle={{marginLeft: 80}}
-                    // navigationBarTitleImageStyle={{width: 100}}
-                >
-                    <Scene key="root">
-                        <Scene key="pageOne" component={Main_Page} initial={true}/>
-                        <Scene key="pageTree" component={AmazingCropperPage}/>
-                        <Scene key="pageTwo" component={ImagePickerButton}   />
-                    </Scene>
-                </Drawer>
-            </Router>
+            <SplashApp imageSource={require('./src/Image/splash.png')} direction="up" duration="3500" withFadeOut>
+                <Router>
+                    <Drawer hideNavBar={true}
+                            key="drawer"
+                            drawerImage={MenuIcon}
+                            drawerPosition="left"
+                            drawerWidth={300}
+                            navigationBarStyle={{backgroundColor: '#b12995'}}
+                            navigationBarTitleImage={Pixmemo}
+                            navigationBarTitleImageStyle={{marginLeft: 80}}
+                        // navigationBarTitleImageStyle={{width: 100}}
+                    >
+                        <Scene key="drawer">
+                            <Scene key="homeScene" component={Main_Page}/>
+                            <Scene key="pageTree" component={AmazingCropperPage}/>
+                            <Scene key="pageTwo" component={ImagePickerButton}/>
+                        </Scene>
+                    </Drawer>
+                </Router>
+            </SplashApp>
         )
     }
 }

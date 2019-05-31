@@ -9,7 +9,7 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
+import {Container} from 'native-base';
 import {MyCarousel} from "../ImageCaruserl/index";
 import {Footer_Section} from "../../Conteiner/Footer_Section/index";
 import ButtonRoundedExample from "../Next_Button/index";
@@ -60,7 +60,6 @@ export default class App extends React.Component {
         console.log(height)
         return (
             <Container style={styles.container}>
-
                 <View style={styles.containerImage}>
                     <TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>
                         <Image
@@ -87,8 +86,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         display: 'flex',
         backgroundColor: '#fff',
-        // alignItems: 'center',
-        // justifyContent: 'center',
         borderColor: 'blue',
         borderWidth: 1,
         borderStyle: 'solid',

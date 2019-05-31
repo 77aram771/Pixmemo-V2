@@ -5180,6 +5180,11 @@ react-native-keyboard-aware-scroll-view@0.8.0:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-linear-gradient@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.4.tgz#dce133526f5a5510a639af94544f1ed0c984bd1e"
+  integrity sha512-FF1NhlerA4uBiS0gFIHa4FBp8/aftv4vPj14Y47lGNkYjSI94tnI6oYO3EfUxXjEyCUPiOVNKZOB9kScyjc5Ew==
+
 react-native-navigation@^2.18.5:
   version "2.18.5"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.18.5.tgz#e4e89f2aa2b03b9569803e1a61a28a6683c3800a"
@@ -5226,6 +5231,16 @@ react-native-snap-carousel@^3.8.0:
   dependencies:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
+
+react-native-splash-screen-mask@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-splash-screen-mask/-/react-native-splash-screen-mask-1.0.2.tgz#39f6497c1720876a14cacb3a6c3a55a8df157ce0"
+  integrity sha512-Rfa8Lay6HXTfn7aMdZbbUmuoHffqyIHJytbZzmzKmrX9ecKBg5ZEaIuQGe0AoRm2TlxYUzPgehhweR3sEIHSBg==
+
+react-native-splashed-app@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/react-native-splashed-app/-/react-native-splashed-app-1.0.13.tgz#9ca2b29c3c42438d0c53537e9672a419535dfcf7"
+  integrity sha512-0k5dtzk5mfqA8oCMYa0YfiAYB7CuLhTAwmQEb9anLk/3C+k8T3erxfy3EfcAGlXnaQn7kJa5/4KB4pEOdwEI3w==
 
 react-native-tab-view@^0.0.77:
   version "0.0.77"

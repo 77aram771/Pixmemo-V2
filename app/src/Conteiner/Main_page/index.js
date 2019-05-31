@@ -16,19 +16,17 @@ import {
 } from 'react-native';
 import {Container} from 'native-base';
 import {Actions} from 'react-native-router-flux'
-import SplashScreenMask from 'react-native-splash-screen-mask';
-import IMAGE from '../../Image/splash.png';
+import LinearGradient from 'react-native-linear-gradient'
 export default class Main_Page extends Component {
+
+
     render() {
         const goToHome = () => {
             Actions.pageTwo()
         };
         return (
             <Container>
-                <ImageBackground style={{width: '100%', height: '100%'}}
-                                 source={require('../../Image/BackgroundImg.png')}
-                                 imageStyle={{resizeMode: 'cover'}}
-                >
+                <LinearGradient colors={['#b12995', '#3b5998', '#01b8d7']} style={{flex: 1}}>
                     <View style={styles.container}>
                         <View>
                             <Text style={styles.title}>
@@ -46,8 +44,9 @@ export default class Main_Page extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </ImageBackground>
+                </LinearGradient>
             </Container>
+
         );
     }
 }
