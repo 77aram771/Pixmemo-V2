@@ -15,10 +15,10 @@ import {
     Dimensions
 } from 'react-native';
 import {Container} from 'native-base';
-import {Actions} from 'react-native-router-flux'
-import LinearGradient from 'react-native-linear-gradient'
-export default class Main_Page extends Component {
+import {Actions} from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
 
+export default class Main_Page extends Component {
 
     render() {
         const goToHome = () => {
@@ -54,6 +54,7 @@ export default class Main_Page extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
