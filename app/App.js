@@ -25,7 +25,11 @@ class App extends Component {
                             drawerImage={MenuIcon}
                             drawerPosition="left"
                             drawerWidth={300}
-                            navigationBarStyle={{backgroundColor: '#b12995'}}
+                            navigationBarStyle={{
+                                backgroundColor: '#b12995',
+                                borderBottomWidth: 0,
+                                borderStyle: 'solid'
+                            }}
                             navigationBarTitleImage={Pixmemo}
                             navigationBarTitleImageStyle={{marginLeft: 80}}
                         // navigationBarTitleImageStyle={{width: 100}}

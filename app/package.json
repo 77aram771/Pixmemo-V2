@@ -1,16 +1,26 @@
 {
-  "name": "app",
+  "name": "PIXMEMO",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
+  "keywords": [
+    "orientation",
+    "react-native",
+    "android",
+    "ios",
+    "screen"
+  ],
   "dependencies": {
+    "gl-react-native": "^2.57.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-amazing-cropper": "0.0.9",
+    "react-native-image-crop-picker": "^0.24.1",
+    "react-native-image-cropper": "^0.4.5",
     "react-native-image-picker": "^0.28.1",
     "react-native-image-rotate": "^2.1.0",
     "react-native-linear-gradient": "^2.5.4",

@@ -13,7 +13,8 @@ import {Container} from 'native-base';
 import {MyCarousel} from "../ImageCaruserl/index";
 import {Footer_Section} from "../../Conteiner/Footer_Section/index";
 import ButtonRoundedExample from "../Next_Button/index";
-const ImagePicker = require('react-native-image-picker');
+import ImagePicker from 'react-native-image-picker';
+import AmazingCropperPage from "../../Conteiner/Cropper/index";
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 export default class App extends React.Component {
@@ -61,12 +62,13 @@ export default class App extends React.Component {
         return (
             <Container style={styles.container}>
                 <View style={styles.containerImage}>
-                    <TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>
-                        <Image
-                            source={{uri: this.state.filePath.uri}}
-                            style={styles.imagePicker}
-                        />
-                    </TouchableHighlight>
+                    {/*<TouchableHighlight title="Choose File" onPress={this.chooseFile.bind(this)}>*/}
+                        {/*<Image*/}
+                            {/*source={{uri: this.state.filePath.uri}}*/}
+                            {/*style={styles.imagePicker}*/}
+                        {/*/>*/}
+                    {/*</TouchableHighlight>*/}
+                    <AmazingCropperPage/>
                 </View>
                 <MyCarousel image={this.state.filePath.uri}/>
                 <ButtonRoundedExample/>
