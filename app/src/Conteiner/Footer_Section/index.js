@@ -6,9 +6,7 @@ import {
     StyleSheet,
     Text,
     View,
-    ImageBackground,
     Image,
-    Button,
     TouchableOpacity,
     TouchableHighlight,
     Dimensions
@@ -16,13 +14,13 @@ import {
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 import Img_delete from '../../Image/icon/delete.png';
-import Img_rotate from '../../Image/icon/rotate.png';
 import Img_tiles from '../../Image/icon/tiles.png';
+
 export const Footer_Section = () => {
     return (
         <View style={styles.container}>
             <View style={styles.footerButton}>
-                <TouchableHighlight>
+                <TouchableHighlight style={styles.footerItem}>
                     <Image
                         source={Img_tiles}
                     />
@@ -32,7 +30,7 @@ export const Footer_Section = () => {
                 </Text>
             </View>
             <View style={styles.footerButton}>
-                <TouchableHighlight>
+                <TouchableHighlight style={styles.footerItem}>
                     <Image
                         source={Img_delete}
                     />
@@ -49,17 +47,28 @@ const styles = StyleSheet.create({
     container: {
         width: width,
         height: 110,
-        borderTopWidth: 1,
-        borderStyle: 'solid',
-        borderColor: 'grey',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 12,
+            height: 500,
+        },
+        shadowOpacity: 0.9,
+        shadowRadius: 5,
+        elevation: 2,
+        borderStyle: 'solid',
+        borderTopWidth: 1,
+        borderColor: 'rgba(0, 0, 0, 0.16)'
     },
     footerButton: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    footerItem: {
+        marginBottom: 10,
     }
 });

@@ -10,14 +10,13 @@ import {
     Dimensions
 } from 'react-native';
 import {Container} from 'native-base';
-import {MyCarousel} from "../ImageCaruserl/index";
-import {Footer_Section} from "../../Conteiner/Footer_Section/index";
-import ButtonRoundedExample from "../Next_Button/index";
-import ImagePicker from 'react-native-image-picker';
-import AmazingCropperPage from "../../Conteiner/Cropper/index";
+import {MyCarousel} from "../../Components/ImageCaruserl/index";
+import {Footer_Section} from "../Footer_Section/index";
+import ButtonRoundedExample from "../../Components/Next_Button/index";
+import AmazingCropperPage from "../Cropper/index";
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-export default class App extends React.Component {
+export default class ImagesPicker extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,30 +49,12 @@ const styles = StyleSheet.create({
     containerImage: {
         marginTop: 20,
         backgroundColor: '#fff',
-        borderColor: 'blue',
+        borderColor: '#8f8c92',
         borderWidth: 1,
-        borderStyle: 'solid',
+        borderStyle: 'dashed',
         width: 300,
         height: 330,
         display: 'flex',
         justifyContent: 'center',
     },
-    imagePicker: {
-        width: 315,
-        height: 330,
-    },
-    button: {
-        width: 151,
-        height: 41,
-        borderRadius: 30,
-        backgroundColor: '#0091c1',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-        elevation: 7,
-    }
 });

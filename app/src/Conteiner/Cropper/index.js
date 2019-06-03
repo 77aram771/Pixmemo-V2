@@ -4,7 +4,6 @@ import {
     Image, TouchableOpacity, NativeModules, Dimensions
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import AmazingCropper from 'react-native-amazing-cropper';
 import CustomCropperFooter from '../../../src/Components/CustomCropperFooter';
 import ImagePicker from 'react-native-image-crop-picker';
 import myButton from '../../Image/icon/myButton.png';
@@ -87,16 +86,16 @@ export default class AmazingCropperPage extends Component {
                     {this.state.images ? this.state.images.map(i => <View
                         key={i.uri}>{this.renderAsset(i)}</View>) : null}
                 </ScrollView>
-                <TouchableOpacity onPress={() => this.pickSingle(true)}>
-                    <Image
-                        source={myButton}
-                        styles={this.state.images ? styles.imgButtonFlex : styles.imgButtonNone}
-                    />
-                </TouchableOpacity>
+                <View style={this.state.image ? {display: 'none'} : {display: 'flex'}}>
+                    <TouchableOpacity onPress={() => this.pickSingle(true)} style={styles.ButtonIcon}>
+                        <Image
+                            source={myButton}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
@@ -105,5 +104,11 @@ const styles = StyleSheet.create({
     },
     imgButtonNone: {
         display: 'none'
+    },
+    ButtonIcon: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
     }
-})
+});

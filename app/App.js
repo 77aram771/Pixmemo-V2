@@ -10,15 +10,17 @@ import React, {Component} from 'react';
 import {Router, Scene, Drawer} from 'react-native-router-flux';
 import Main_Page from './src/Conteiner/Main_page';
 import AmazingCropperPage from './src/Conteiner/Cropper';
+import ImagesPicker from './src/Conteiner/ImagePicker'
+import SplashApp from 'react-native-splashed-app'
+
 import MenuIcon from './src/Image/icon/MenuIcon.png'
 import Pixmemo from './src/Image/icon/Pixmemo.png';
-import ImagePickerButton from './src/Components/ImagePicker'
-import SplashApp from 'react-native-splashed-app'
+
 class App extends Component {
 
     render() {
         return (
-            <SplashApp imageSource={require('./src/Image/splash.png')} direction="up" duration="3500" withFadeOut>
+            <SplashApp imageSource={require('./src/Image/splash.png')} duration="3500" withFadeOut>
                 <Router>
                     <Drawer hideNavBar={true}
                             key="drawer"
@@ -37,7 +39,7 @@ class App extends Component {
                         <Scene key="drawer">
                             <Scene key="homeScene" component={Main_Page}/>
                             <Scene key="pageTree" component={AmazingCropperPage}/>
-                            <Scene key="pageTwo" component={ImagePickerButton}/>
+                            <Scene key="pageTwo" component={ImagesPicker}/>
                         </Scene>
                     </Drawer>
                 </Router>

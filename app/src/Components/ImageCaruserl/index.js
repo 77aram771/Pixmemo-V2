@@ -23,8 +23,7 @@ export const MyCarousel = ({image}) => {
             <ScrollView horizontal={true}>
                 <View style={styles.viewStyle}>
                     <TouchableHighlight>
-                        <Image source={{uri: image}}
-                               style={styles.imagePicker}/>
+                        <Image source={{uri: image}}/>
                     </TouchableHighlight>
                 </View>
             </ScrollView>
@@ -39,9 +38,6 @@ const styles = StyleSheet.create({
         height: 85,
         flex: 1,
         flexDirection: 'row',
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: 'red',
         justifyContent: 'space-around',
     },
     viewStyle: {
