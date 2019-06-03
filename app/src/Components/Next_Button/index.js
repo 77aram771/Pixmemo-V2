@@ -6,19 +6,18 @@ import {Container, Content, Button, Text} from 'native-base';
 import {
     StyleSheet,
 } from 'react-native';
-export default class ButtonRoundedExample extends Component {
-    render() {
-        return (
-            <Container>
-                <Content>
-                    <Button rounded style={styles.buttonStyle}>
-                        <Text>Next</Text>
-                    </Button>
-                </Content>
-            </Container>
-        );
-    }
-}
+export const ButtonRoundedExample = ({changeBoolean}) => {
+    console.log('props', changeBoolean);
+    return (
+        <Container>
+            <Content>
+                <Button rounded style={styles.buttonStyle}>
+                    <Text>Next</Text>
+                </Button>
+            </Content>
+        </Container>
+    );
+};
 
 const styles = StyleSheet.create({
     buttonStyle: {

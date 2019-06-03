@@ -14,6 +14,7 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+
 import {Container} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
@@ -22,7 +23,7 @@ export default class Main_Page extends Component {
 
     render() {
         const goToHome = () => {
-            Actions.pageTwo()
+            Actions.Cropper()
         };
         return (
             <Container>

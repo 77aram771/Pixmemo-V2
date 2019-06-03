@@ -46,7 +46,7 @@ export const Footer_Section = () => {
 const styles = StyleSheet.create({
     container: {
         width: width,
-        height: 110,
+        height: height / 7,
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
