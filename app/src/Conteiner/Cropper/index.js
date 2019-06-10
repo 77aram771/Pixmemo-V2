@@ -39,7 +39,6 @@ export default class AmazingCropperPage extends Component {
             });
         }).catch(e => {
             console.log(e);
-            // Alert.alert(e.message ? e.message : e);
         });
     }
 
@@ -77,6 +76,12 @@ export default class AmazingCropperPage extends Component {
         return this.renderImage(image);
     }
 
+    handleDeleteImg = () => {
+        this.setState({
+            image: null,
+            images: null
+        })
+    };
 
     render() {
         return (
