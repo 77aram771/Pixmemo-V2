@@ -33,12 +33,10 @@ export default class ImagesPicker extends React.Component {
     };
 
     render() {
-        console.log(width)
-        console.log(height)
         return (
             <Container style={styles.container}>
                 <View style={styles.containerImage}>
-                    <AmazingCropperPage/>
+                    <AmazingCropperPage filePath={this.state.filePath}/>
                 </View>
                 <MyCarousel image={this.state.filePath.uri}/>
 

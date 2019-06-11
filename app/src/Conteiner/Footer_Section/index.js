@@ -11,16 +11,21 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+
+import {Actions} from 'react-native-router-flux';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 import Img_delete from '../../Image/icon/delete.png';
 import Img_tiles from '../../Image/icon/tiles.png';
 
 export const Footer_Section = () => {
+    const goToBack = () => {
+        Actions.homeScene()
+    };
     return (
         <View style={styles.container}>
             <View style={styles.footerButton}>
-                <TouchableHighlight style={styles.footerItem}>
+                <TouchableHighlight style={styles.footerItem}  >
                     <Image
                         source={Img_tiles}
                     />

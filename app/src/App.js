@@ -21,9 +21,6 @@ const store = createStore(allReducers, applyMiddleware(thunk));
 import MenuIcon from './Image/icon/MenuIcon.png'
 import Pixmemo from './Image/icon/Pixmemo.png';
 import MyDrower from "./Conteiner/MyDrawer/index";
-import Drower1 from "./Conteiner/MyDrawer/drower1";
-import Drower2 from "./Conteiner/MyDrawer/drower2";
-
 class App extends Component {
 
     render() {
@@ -37,7 +34,7 @@ class App extends Component {
                             key="drawer"
                             drawerImage={MenuIcon}
                             drawerPosition="left"
-                            drawerWidth={350}
+                            drawerWidth={325}
                             navigationBarStyle={{
                                 backgroundColor: '#b12995',
                                 borderBottomWidth: 0,
@@ -52,10 +49,6 @@ class App extends Component {
                                 <Scene key="Cropper" component={ImagesPicker}/>
                             </Scene>
                         </Drawer>
-
-
-
-
                     </Router>
                 </SplashApp>
             </Provider>

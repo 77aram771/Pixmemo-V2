@@ -18,6 +18,10 @@ export default class AmazingCropperPage extends Component {
         };
     }
 
+    componentDidMount(){
+        console.log('filePath', this.props.filePath)
+    }
+
 
     pickSingle(cropit, circular = false, mediaType) {
         ImagePicker.openPicker({
