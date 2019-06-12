@@ -17,13 +17,22 @@ import {Container} from 'native-base';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 export const MyCarousel = ({image}) => {
-    console.log('image',image);
+
+    if(image !== null){
+        console.log('image', image)
+    }
+
     return (
         <Container style={styles.container}>
             <ScrollView horizontal={true}>
                 <View style={styles.viewStyle}>
                     <TouchableHighlight>
-                        <Image source={{uri: image}}/>
+                        {/*{image !== null ?*/}
+                            {/*<Image source={{uri: image}}/>*/}
+                            {/*:*/}
+                            {/*<Image source={{uri: ''}}/>*/}
+                        {/*}*/}
+                        <Image source={image ? {uri: image.uri} : {uri: null}}/>
                     </TouchableHighlight>
                 </View>
             </ScrollView>

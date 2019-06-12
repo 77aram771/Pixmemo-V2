@@ -14,7 +14,6 @@ import {
     TouchableHighlight,
     Dimensions
 } from 'react-native';
-
 import {Container} from 'native-base';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';

@@ -4,7 +4,7 @@ import {
     Image, TouchableOpacity, NativeModules, Dimensions
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import CustomCropperFooter from '../../../src/Components/CustomCropperFooter';
+
 import ImagePicker from 'react-native-image-crop-picker';
 import myButton from '../../Image/icon/myButton.png';
 
@@ -18,19 +18,13 @@ export default class AmazingCropperPage extends Component {
         };
     }
 
-    componentDidMount(){
-        console.log('filePath', this.props.filePath)
-    }
+
 
 
     pickSingle(cropit, circular = false, mediaType) {
         ImagePicker.openPicker({
-            width: 500,
-            height: 500,
             cropping: cropit,
             cropperCircleOverlay: circular,
-            compressImageMaxWidth: 1000,
-            compressImageMaxHeight: 1000,
             compressImageQuality: 1,
             compressVideoPreset: 'MediumQuality',
             includeExif: true,

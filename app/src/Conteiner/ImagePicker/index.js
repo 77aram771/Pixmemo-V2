@@ -7,38 +7,111 @@ import {
     StyleSheet,
     Image,
     TouchableHighlight,
-    Dimensions
+    Dimensions,
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
 import {Container, Content, Button, Text} from 'native-base';
 import {MyCarousel} from "../../Components/ImageCaruserl/index";
 import {Footer_Section} from "../Footer_Section/index";
-import {CropperTools} from "../CropperTools/index";
 import {ButtonRoundedExample} from "../../Components/Next_Button/index";
 import AmazingCropperPage from "../Cropper/index";
+import ImagePicker from 'react-native-image-crop-picker';
+import myButton from '../../Image/icon/myButton.png';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 export default class ImagesPicker extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            filePath: {},
-            footerBoolean: true
+            image: null,
+            images: null
         };
     }
 
-    handelNext = () => {
+    pickSingle(cropit, circular = false, mediaType) {
+        ImagePicker.openPicker({
+            cropping: cropit,
+            cropperCircleOverlay: circular,
+            compressImageQuality: 1,
+            compressVideoPreset: 'MediumQuality',
+            includeExif: true,
+        }).then(image => {
+            console.log('received image', image);
+
+            this.setState({
+                image: {uri: image.path, width: image.width, height: image.height, mime: image.mime},
+                images: null
+            });
+        }).catch(e => {
+            console.log(e);
+        });
+    }
+
+    renderImage(image) {
+        return <Image style={{width: 300, height: 300, resizeMode: 'contain'}} source={image}/>
+    }
+
+    renderVideo(video) {
+        console.log('rendering video');
+        return (<View style={{height: 300, width: 300}}>
+            <Video source={{uri: video.uri, type: video.mime}}
+                   style={{
+                       position: 'absolute',
+                       top: 0,
+                       left: 0,
+                       bottom: 0,
+                       right: 0
+                   }}
+                   rate={1}
+                   paused={false}
+                   volume={1}
+                   muted={false}
+                   resizeMode={'cover'}
+                   onError={e => console.log(e)}
+                   onLoad={load => console.log(load)}
+                   repeat={true}/>
+        </View>);
+    }
+
+    renderAsset(image) {
+        if (image.mime && image.mime.toLowerCase().indexOf('video/') !== -1) {
+            return this.renderVideo(image);
+        }
+
+        return this.renderImage(image);
+    }
+
+    handleDeleteImg = () => {
         this.setState({
-            footerBoolean: !this.state.footerBoolean
+            image: null,
+            images: null
         })
+    };
+
+
+    handelNext = () => {
+
     };
 
     render() {
         return (
             <Container style={styles.container}>
                 <View style={styles.containerImage}>
-                    <AmazingCropperPage filePath={this.state.filePath}/>
+                    <ScrollView>
+                        {this.state.image ? this.renderAsset(this.state.image) : null}
+                        {this.state.images ? this.state.images.map(i => <View
+                            key={i.uri}>{this.renderAsset(i)}</View>) : null}
+                    </ScrollView>
+                    <View style={this.state.image ? {display: 'none'} : {display: 'flex'}}>
+                        <TouchableOpacity onPress={() => this.pickSingle(true)} style={styles.ButtonIcon}>
+                            <Image
+                                source={myButton}
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <MyCarousel image={this.state.filePath.uri}/>
+                <MyCarousel image={this.state.image}/>
 
                 {/*<ButtonRoundedExample changeBoolean={this.state.footerBoolean}/>*/}
                 <Content>
@@ -46,9 +119,7 @@ export default class ImagesPicker extends React.Component {
                         <Text>Next</Text>
                     </Button>
                 </Content>
-                {
-                    this.state.footerBoolean ? <Footer_Section/> : <CropperTools/>
-                }
+                <Footer_Section/>
             </Container>
         );
     }
@@ -59,6 +130,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'space-between',
+    },
+    ButtonIcon: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
     },
     containerImage: {
         marginTop: 20,
